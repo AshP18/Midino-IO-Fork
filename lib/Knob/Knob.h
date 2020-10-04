@@ -43,7 +43,6 @@ class Knob{
 
   public:
 
-  Encoder encoder;
   OneButton button;
   
   Knob();
@@ -55,6 +54,10 @@ class Knob{
   void singleclick(int _numOfEncoder);
   void longclick(int _numOfEncoder);
   long _encoderValue;
+  long _encoderPrevValue;
+  int aState;
+  int aLastState;
+
 
 };
 #endif

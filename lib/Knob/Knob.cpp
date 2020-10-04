@@ -1,4 +1,6 @@
 #include "Knob.h"
+#include <Arduino.h>
+
 MIDI_CREATE_DEFAULT_INSTANCE();
 
 float octave = 0;
@@ -7,20 +9,28 @@ OneButton configButtonUp;
 OneButton configButtonDown;
 OneButton configButton3;
 OneButton configButton4;
+unsigned long startTime = 0;
 
 Knob arrayKnobs[16];
 
 
-Knob::Knob(uint8_t numEncoder,uint8_t a,uint8_t b,uint8_t switchPin,uint8_t ledsPin): encoder(a,b) , button(switchPin,true){
+Knob::Knob(uint8_t numEncoder,uint8_t a,uint8_t b,uint8_t switchPin,uint8_t ledsPin): button(switchPin,true){
   
     _numOfEncoder = numEncoder;
 
     _a = a;
     _b = b;
+    pinMode(_a,INPUT);
+    pinMode(_b,INPUT);
+    aLastState = digitalRead(_a);
 
     _switchPin = switchPin;
     _ledsPin  = ledsPin;
-    _encoderValue = -999;
+
+    _encoderValue = 0;
+    _encoderPrevValue = 0;
+
+    
    
    button.attachClick( (void (*)(void *)) singleclickKnob,(void*)_numOfEncoder);  
    button.attachLongPressStart((void (*)(void *)) longclickManteinKnob,(void*)_numOfEncoder);
@@ -28,21 +38,31 @@ Knob::Knob(uint8_t numEncoder,uint8_t a,uint8_t b,uint8_t switchPin,uint8_t leds
    
 };
 
-Knob::Knob():encoder(0,0){
+Knob::Knob(){
 
 }
+ 
 
 void Knob::readKnob(){
-    //long encoderValue = min(127,max(0,encoder.read()));
     
-    long encoderValue = arrayKnobs[_numOfEncoder].encoder.read();
-    if(encoderValue != _encoderValue){
-        _encoderValue = encoderValue;
-        MIDI.sendControlChange(_numOfEncoder,encoderValue,1);
-    }
+    aState  = digitalRead(_a);
+     // Reads the "current" state of the outputA
+   // If the previous and the current state of the outputA are different, that means a Pulse has occured
+   if (aState != aLastState){     
+     // If the outputB state is different to the outputA state, that means the encoder is rotating clockwise
+     if (digitalRead(_b) != aState) { 
+       _encoderValue = max(0,min(100,_encoderValue+4));
+     } else {
+       _encoderValue = max(0,min(100,_encoderValue-4));
+     }
+   } 
+   aLastState = aState; // Updates the previous state of the outputA with the current state
+
+    if(_encoderValue != _encoderPrevValue){
+        _encoderPrevValue = _encoderValue;
+        MIDI.sendControlChange(_numOfEncoder,map(_encoderValue,0,100,0,127),1);
+    }  
     
-
-
 }
 
 void Knob::readButton(){
