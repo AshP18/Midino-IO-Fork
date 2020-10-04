@@ -1,13 +1,11 @@
 # MIDINO IO
-***
-MIDIno is a OpenSource proyect to make the best Midi controller. It works under the architecture of the ATMEGA2560 processor, in this case an Arduino development board was used.
+
+MIDIno is not an open source project to make the best Midi controller. For now it works under the ATMEGA2560 processor architecture, in this case an Arduino Mega development board was used. In future versions it is expected to respond to other embedded architectures
 
 ## MIDIno functions
 
- - MIDIno has 16 programmable knobs (encoders), each one will have the possibility of being mapped in any DAW (Digital Audio Workstation). If you want to control an echo or some reverb you can do it. 
+ - MIDIno has 16 programmable knobs (encoders), each one will have the possibility of being mapped in any DAW (Digital Audio Workstation). If you want to control an delay, some reverb or any parameter of a digital instrument you can do it. 
 
-- Midino also too work as a Beat Machine, add instruments and play them with your MIDIno
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYzMjk2OTE4Niw1NzAwNjE5OTEsMjEzMz
-IxOTQxNl19
--->
+- Midino also works as a Beat Machine, add instruments and play them with your MIDIno, press the knobs and create music.
+
+If you want to contribute with the project, read the CONTRIBUTING.md file.
