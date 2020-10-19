@@ -1,5 +1,4 @@
 #include <MIDI.h>
-#include <Encoder.h>
 #include <OneButton.h>
 
 
