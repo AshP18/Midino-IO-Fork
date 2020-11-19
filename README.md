@@ -1,6 +1,6 @@
 # MIDINO IO
 
-MIDIno is not an open source project to make the best Midi controller. For now it works under the ATMEGA2560 processor architecture, in this case an Arduino Mega development board was used. In future versions it is expected to respond to other embedded architectures
+MIDIno is an open source project to make the best Midi controller. For now it works under the ATMEGA2560 processor architecture, in this case an Arduino Mega development board was used. In future versions it is expected to respond to other embedded architectures
 
 ## MIDIno functions
 
