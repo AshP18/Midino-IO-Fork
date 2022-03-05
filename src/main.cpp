@@ -6,7 +6,6 @@
 #include <MIDI.h>
 
 #include <protothreads.h>
-#include <Encoder.h>
 
 
 
