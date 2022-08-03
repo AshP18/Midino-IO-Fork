@@ -73,7 +73,7 @@ instance. Events can either be static functions or lambdas (without captured var
 ```CPP
 // Handler function for a single click:
 static void handleClick() {
-  Serial.println("Clicked!");
+  //Serial.println("Clicked!");
 }
 
 // Single Click event attachment
@@ -81,7 +81,7 @@ btn.attachClick(handleClick);
 
 // Double Click event attachment with lambda
 btn.attachDoubleClick([]() {
-  Serial.println("Double Press!");
+  //Serial.println("Double Press!");
 });
 ```
 

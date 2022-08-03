@@ -46,11 +46,11 @@ OneButton button2(A2, true);
 // setup code here, to run once:
 void setup() {
   // Setup the Serial port. see http://arduino.cc/en/Serial/IfSerial
-  Serial.begin(9600);
-  while (!Serial) {
-    ; // wait for serial port to connect. Needed for Leonardo only
-  }
-  Serial.println("Starting TwoButtons...");
+  //Serial.begin(9600);
+  // while (!Serial) {
+  //   ; // wait for serial port to connect. Needed for Leonardo only
+  // }
+  ////Serial.println("Starting TwoButtons...");
 
   // link the button 1 functions.
   button1.attachClick(click1);
@@ -84,57 +84,57 @@ void loop() {
 
 // This function will be called when the button1 was pressed 1 time (and no 2. button press followed).
 void click1() {
-  Serial.println("Button 1 click.");
+  //Serial.println("Button 1 click.");
 } // click1
 
 
 // This function will be called when the button1 was pressed 2 times in a short timeframe.
 void doubleclick1() {
-  Serial.println("Button 1 doubleclick.");
+  //Serial.println("Button 1 doubleclick.");
 } // doubleclick1
 
 
 // This function will be called once, when the button1 is pressed for a long time.
 void longPressStart1() {
-  Serial.println("Button 1 longPress start");
+  //Serial.println("Button 1 longPress start");
 } // longPressStart1
 
 
 // This function will be called often, while the button1 is pressed for a long time.
 void longPress1() {
-  Serial.println("Button 1 longPress...");
+  //Serial.println("Button 1 longPress...");
 } // longPress1
 
 
 // This function will be called once, when the button1 is released after beeing pressed for a long time.
 void longPressStop1() {
-  Serial.println("Button 1 longPress stop");
+  //Serial.println("Button 1 longPress stop");
 } // longPressStop1
 
 
 // ... and the same for button 2:
 
 void click2() {
-  Serial.println("Button 2 click.");
+  //Serial.println("Button 2 click.");
 } // click2
 
 
 void doubleclick2() {
-  Serial.println("Button 2 doubleclick.");
+  //Serial.println("Button 2 doubleclick.");
 } // doubleclick2
 
 
 void longPressStart2() {
-  Serial.println("Button 2 longPress start");
+  //Serial.println("Button 2 longPress start");
 } // longPressStart2
 
 
 void longPress2() {
-  Serial.println("Button 2 longPress...");
+  //Serial.println("Button 2 longPress...");
 } // longPress2
 
 void longPressStop2() {
-  Serial.println("Button 2 longPress stop");
+  //Serial.println("Button 2 longPress stop");
 } // longPressStop2
 
 

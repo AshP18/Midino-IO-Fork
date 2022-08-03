@@ -41,19 +41,19 @@ void handleNoteOn(byte inChannel, byte inNote, byte inVelocity)
     {
         const unsigned long average = gTime_sum / (float)gCounter;
 
-        Serial.println("Time to receive NoteOn: ");
+        //Serial.println("Time to receive NoteOn: ");
 
         Serial.print("Average: ");
         Serial.print(average);
-        Serial.println(" microsecs");
+        //Serial.println(" microsecs");
 
         Serial.print("Min:     ");
         Serial.print(gTime_min);
-        Serial.println(" microsecs");
+        //Serial.println(" microsecs");
 
         Serial.print("Max:     ");
         Serial.print(gTime_max);
-        Serial.println(" microsecs");
+        //Serial.println(" microsecs");
 
         gCounter = 0;
         gTime_sum = 0;
@@ -73,7 +73,7 @@ void setup()
 
     Serial.begin(115200);
     while(!Serial);
-    Serial.println("Arduino Ready");
+    //Serial.println("Arduino Ready");
 
     midiBench.sendNoteOn(69,127,1);
 }

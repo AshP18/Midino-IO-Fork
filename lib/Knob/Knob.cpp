@@ -3,6 +3,8 @@
 
 MIDI_CREATE_DEFAULT_INSTANCE();
 
+
+
 float octave = 0;
 
 OneButton configButtonUp;
@@ -23,6 +25,8 @@ Knob::Knob(uint8_t numEncoder,uint8_t a,uint8_t b,uint8_t switchPin,uint8_t leds
     pinMode(_a,INPUT);
     pinMode(_b,INPUT);
     aLastState = digitalRead(_a);
+
+    MIDI.begin(MIDI_CHANNEL_OMNI);
 
     _switchPin = switchPin;
     _ledsPin  = ledsPin;

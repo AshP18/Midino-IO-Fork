@@ -366,7 +366,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "specctra_dsn": "../../../../MIDINO-IO.dsn",
+      "specctra_dsn": "MIDINO-IO.dsn",
       "step": "",
       "vrml": ""
     },
